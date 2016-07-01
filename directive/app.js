@@ -42,3 +42,23 @@ app.controller('FirstController',['$scope',function($scope){
 }]);
 
 //指令5
+app.directive('hello3',function(){
+	return {
+		restirct:'EA',
+		replace:true,
+		transclude:true,
+		scope:{
+			title:'=expanderTitle'
+		},
+		template:'<div>'
+						+'<div class="title" ng-click="toggle()"><span ng-bind="title"></span></div>'
+						+'<div class="body" ng-show="showMe" ng-transclude></div>'
+						+'</div>',
+		link:function(scope,element,attrs){
+			scope.showMe = false;
+			scope.toggle = function(){
+				scope.showMe = !scope.showMe;
+			}
+		}
+	}
+});
