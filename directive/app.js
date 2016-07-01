@@ -48,7 +48,7 @@ app.directive('hello3',function(){
 		replace:true,
 		transclude:true,
 		scope:{
-			title:'=expanderTitle'
+			title:'=mataTitle'
 		},
 		template:'<div>'
 						+'<div class="title" ng-click="toggle()"><span ng-bind="title"></span></div>'
@@ -56,9 +56,43 @@ app.directive('hello3',function(){
 						+'</div>',
 		link:function(scope,element,attrs){
 			scope.showMe = false;
+			scope.title='Hello';
 			scope.toggle = function(){
 				scope.showMe = !scope.showMe;
 			}
 		}
 	}
 });
+
+app.controller("secondController",['$scope',function($scope){
+	$scope.title='点击展开';
+	$scope.text = '这里是内部的内容。';
+}]);
+
+//指令6
+app.directive('hello4',function(){
+	return {
+		restirct:'EA',
+		replace:true,
+		transclude:true,
+		scope:{
+			title:'@mataTitle'
+		},
+		template:'<div>'
+						+'<div class="title" ng-click="toggle()"><span ng-bind="title"></span></div>'
+						+'<div class="body" ng-show="showMe" ng-transclude></div>'
+						+'</div>',
+		link:function(scope,element,attrs){
+			scope.showMe = false;
+			scope.title='Hello';
+			scope.toggle = function(){
+				scope.showMe = !scope.showMe;
+			}
+		}
+	}
+});
+
+app.controller("secondController",['$scope',function($scope){
+	$scope.title='点击展开';
+	$scope.text = '这里是内部的内容。';
+}]);

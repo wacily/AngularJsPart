@@ -30,6 +30,18 @@
 					<span ng-bind="a"></span>.<hello2></hello2>
 				</div>
 			</div>
+			
+			<div ng-controller="secondController">
+				<hello3 class="expander" mata-title="title">
+					<span ng-bind="text"></span>
+				</hello3>
+			</div>
+			
+			<div ng-controller="threeController">
+				<hello4 class="expander" mata-title="{{title}}">
+					<span ng-bind="text"></span>
+				</hello4>
+			</div>
 		</div>
 		
 		<script src="app.js"></script>
