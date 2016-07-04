@@ -29,18 +29,26 @@
 				<div ng-repeat="a in arr">
 					<span ng-bind="a"></span>.<hello2></hello2>
 				</div>
-			</div>
+			</div> 
 			
-			<div ng-controller="secondController">
+			<div ng-controller="secondController" class="box">
 				<hello3 class="expander" mata-title="title">
 					<span ng-bind="text"></span>
 				</hello3>
 			</div>
 			
-			<div ng-controller="threeController">
+			<div ng-controller="threeController" class="box">
 				<hello4 class="expander" mata-title="{{title}}">
 					<span ng-bind="text"></span>
 				</hello4>
+			</div>
+			
+			<div ng-controller = "someController">
+				<accordion>
+					<expander class="expander" ng-repeat="expander in expanders" expander-title='expander.title'>
+						<span ng-bind="expander.text"></span>
+					</expander>
+				</accordion>
 			</div>
 		</div>
 		
